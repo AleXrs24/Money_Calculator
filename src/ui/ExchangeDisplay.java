@@ -1,6 +1,6 @@
 package ui;
 
-import moneycalculator.model.Money;
+import model.Money;
 
 public interface ExchangeDisplay {
     

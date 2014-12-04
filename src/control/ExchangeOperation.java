@@ -1,6 +1,6 @@
 package control;
 
-import moneycalculator.ui.ExchangeDialog;
+import ui.ExchangeDialog;
 import ui.ExchangeDisplay;
 
 public class ExchangeOperation {

@@ -1,7 +1,7 @@
-package moneycalculator.swing;
+package swing;
 
-import moneycalculator.model.Currency;
-import moneycalculator.ui.ExchangeDialog;
+import model.Currency;
+import ui.ExchangeDialog;
 
 import javax.swing.*;
 import java.awt.*;

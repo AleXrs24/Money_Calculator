@@ -1,4 +1,4 @@
-package moneycalculator.model;
+package model;
 
 public class Money {
     private final double amount;

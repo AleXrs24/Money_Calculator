@@ -1,6 +1,6 @@
 package console;
 
-import moneycalculator.model.Money;
+import model.Money;
 
 public class ExchangeDisplay implements ui.ExchangeDisplay {
 

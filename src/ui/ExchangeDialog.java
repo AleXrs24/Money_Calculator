@@ -1,6 +1,6 @@
-package moneycalculator.ui;
+package ui;
 
-import moneycalculator.model.Exchange;
+import model.Exchange;
 
 public interface ExchangeDialog {
     public Exchange getExchange();

@@ -2,9 +2,9 @@ package application;
 
 import console.ExchangeDisplay;
 import control.ExchangeOperation;
-import moneycalculator.mock.CurrencySetLoader;
-import moneycalculator.model.CurrencySet;
-import moneycalculator.swing.ApplicationFrame;
+import mock.CurrencySetLoader;
+import model.CurrencySet;
+import swing.ApplicationFrame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

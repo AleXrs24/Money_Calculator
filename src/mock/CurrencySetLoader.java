@@ -1,9 +1,9 @@
-package moneycalculator.mock;
+package mock;
 
-import moneycalculator.model.Currency;
-import moneycalculator.model.CurrencySet;
+import model.Currency;
+import model.CurrencySet;
 
-public class CurrencySetLoader implements moneycalculator.persistence.CurrencySetLoader {
+public class CurrencySetLoader implements persistence.CurrencySetLoader {
     @Override
     public CurrencySet load() {
         CurrencySet set = new CurrencySet();
