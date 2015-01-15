@@ -9,7 +9,7 @@ public class CurrencySetLoader implements persistence.CurrencySetLoader {
         CurrencySet set = new CurrencySet();
         set.add(new Currency("EUR","Euro","€"));
         set.add(new Currency("USD","Dolar americano","$"));
-        set.add(new Currency("HKD","Dolar Hong Kong","$"));
+        set.add(new Currency("GBP","Libras Esterlinas","£"));
         return set;
     }
 }

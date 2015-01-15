@@ -1,4 +1,4 @@
-package swing;
+/*package swing;
 
 import model.Currency;
 import model.Exchange;
@@ -45,7 +45,7 @@ public class ExchangeDialogPanel extends JPanel implements ExchangeDialog {
         return input;
     }
 
-    @Override
+    //@Override
     public Exchange getExchange() {
         return new Exchange(getMoney(), getCurrency(toCurrency));
     }
@@ -64,4 +64,4 @@ public class ExchangeDialogPanel extends JPanel implements ExchangeDialog {
     }
 
 
-}
+}*/
