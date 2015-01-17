@@ -4,13 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CurrencySet {
-
-    private final List<Currency> list = new ArrayList<Currency>();
-
+    private final List<Currency> list = new ArrayList<>();
+    
     public boolean add(Currency currency) {
         return list.add(currency);
     }
 
+    public boolean remove(Currency currency) {
+        return list.remove(currency);
+    }
+    
     public Currency get(int index) {
         return list.get(index);
     }

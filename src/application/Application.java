@@ -1,14 +1,14 @@
 package application;
 
-//import console.ExchangeDisplay;
+import console.ExchangeDisplay;
 import control.ExchangeOperation;
-//import control.SwingExchangeOperation;
+import control.SwingExchangeOperation;
 import mock.CurrencySetLoader;
 import model.CurrencySet;
-//import swing.ApplicationFrame;
+import swing.ApplicationFrame;
 
-//import java.awt.event.ActionEvent;
-//import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Application {
 

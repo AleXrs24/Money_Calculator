@@ -12,15 +12,15 @@ public class Currency {
     }
 
     public String getCode() {
-        return code;
+        return this.code;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public String getSymbol() {
-        return symbol;
+        return this.symbol;
     }
 
     @Override

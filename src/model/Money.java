@@ -10,17 +10,15 @@ public class Money {
     }
 
     public double getAmount() {
-        return amount;
+        return this.amount;
     }
 
     public Currency getCurrency() {
-        return currency;
+        return this.currency;
     }
 
     @Override
     public String toString() {
-        return amount + currency.toString();
+        return this.amount + " " + this.currency.toString();
     }
-    
-    
 }
