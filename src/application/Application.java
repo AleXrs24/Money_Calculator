@@ -23,5 +23,6 @@ public class Application {
         });*/
         CurrencySet currencySet = new CurrencySetLoader().load();
         new ExchangeOperation(currencySet);
+        
     }
 }
