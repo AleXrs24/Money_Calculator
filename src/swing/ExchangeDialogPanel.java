@@ -1,67 +1,69 @@
-/*package swing;
+package swing;
 
+import java.awt.Component;
+import java.awt.FlowLayout;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import model.Currency;
+import model.CurrencySet;
 import model.Exchange;
 import model.Money;
-import ui.ExchangeDialog;
+//import ui.ExchangeDialog;
 
-import javax.swing.*;
-import java.awt.*;
+public class ExchangeDialogPanel extends JPanel implements ui.ExchangeDialog{
+    private JTextField textField;
+    private JComboBox<Currency> currencyFrom;
+    private JComboBox<Currency> currencyTo;
+    private final Currency[] currencies;
 
-public class ExchangeDialogPanel extends JPanel implements ExchangeDialog {
-
-    private JTextField amount;
-    private JComboBox<Currency> fromCurrency;
-    private JComboBox<Currency> toCurrency;
-    private Currency[] currencies;
-
-    public ExchangeDialogPanel(Currency[] currencies) {
+    public ExchangeDialogPanel(Currency[] currencies){
         this.currencies = currencies;
-        this.setLayout(new FlowLayout());
-        this.createWidgets();
+        setLayout(new FlowLayout());
+        createToolBar();
     }
 
-    private void createWidgets() {
-        this.add(createAmountWidget());
-        this.add(createFromCurrencyWidget());
-        this.add(createToCurrencyWidget());
+    private void createToolBar() {
+        add(createTextField());
+        add(createFromCurrency());
+        add(createToCurrency());
     }
 
-    private JComponent createAmountWidget() {
-        JTextField input = new JTextField(10);
-        this.amount = input;
-        return input;
+    private JComponent createTextField() {
+        textField = new JTextField(10);
+        return textField;
     }
 
-    private Component createFromCurrencyWidget() {
-        JComboBox<Currency> input = new JComboBox<Currency>(currencies);
-        this.fromCurrency = input;
-        return input;
+    private Component createFromCurrency() {
+        currencyFrom = new JComboBox<>(currencies);
+        return currencyFrom;
     }
 
-    private Component createToCurrencyWidget() {
-        JComboBox<Currency> input = new JComboBox<Currency>(currencies);
-        this.toCurrency = input;
-        return input;
+    private Component createToCurrency() {
+        currencyTo = new JComboBox<>(currencies);
+        return currencyTo;
     }
 
     //@Override
     public Exchange getExchange() {
-        return new Exchange(getMoney(), getCurrency(toCurrency));
+        return new Exchange(getMoney(),getCurrency(currencyTo));
     }
-
-    private Money getMoney() {
-        return new Money(getAmount(), getCurrency(fromCurrency));
+    
+    private Money getMoney(){
+        return new Money(getAmount(), getCurrency(currencyFrom));
     }
-
-    private double getAmount() {
-        return Double.parseDouble(amount.getText());
-    }
-
-
+    
     private Currency getCurrency(JComboBox<Currency> comboBox) {
         return comboBox.getItemAt(comboBox.getSelectedIndex());
     }
+    
+    private double getAmount(){
+        return Double.parseDouble(textField.getText());
+    }
 
-
-}*/
+    //@Override
+    public Exchange getExchange(CurrencySet currencySet) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+}

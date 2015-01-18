@@ -1,55 +1,69 @@
 package swing;
 
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import model.Currency;
 import ui.ExchangeDialog;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 public class ApplicationFrame extends JFrame {
-
-    private final Currency[] currencies;
-    private ActionListener actionListener;
-    private ExchangeDialog exchangeDialog;
-
-    public ApplicationFrame(Currency[] currencies) throws HeadlessException {
+    private ExchangeDialogPanel exchangeDialog;
+    private DialogPanel area;
+    ActionListener actionListener;
+    final Currency[] currencies;
+    
+    public ApplicationFrame(Currency[] currencies){
         this.currencies = currencies;
-        this.setTitle("Money calculator");
-        this.setSize(500,500);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.createWidgets();
-        this.setVisible(true);
-    }
-
-    public ExchangeDialog getExchangeDialog() {
-        return exchangeDialog;
+        setTitle("Money Calculator");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setMinimumSize(new Dimension(400, 250));
+        createWidgets();
+        setVisible(true);
     }
 
     private void createWidgets() {
-        this.add(createCalculateButton(), BorderLayout.SOUTH);
-        this.add(createExchangeDialogPanel());
+        add(createTextDialog(), BorderLayout.CENTER);
+        add(createExchangeDialog(), BorderLayout.PAGE_START);
+        add(createCalculateButton(), BorderLayout.SOUTH);
     }
 
-    private Component createExchangeDialogPanel() {
+    private Component createExchangeDialog() {
         ExchangeDialogPanel panel = new ExchangeDialogPanel(currencies);
         this.exchangeDialog = panel;
         return panel;
     }
 
+    public ExchangeDialog getExchangeDialog(){
+        return exchangeDialog;
+    }
+    
+    private Component createTextDialog() {
+        DialogPanel panel = new DialogPanel();
+        this.area = panel;
+        return panel;
+    }
+    
     private Component createCalculateButton() {
         JButton button = new JButton("Calculate");
         button.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
-                actionListener.actionPerformed(e);
+                actionListener.actionPerformed(e);        
             }
         });
         return button;
     }
-
-    public void register(ActionListener actionListener) {
-        this.actionListener = actionListener;
+    
+    public void register(ActionListener actionListener){
+        this.actionListener= actionListener;
     }
+
+    public DialogPanel getTextArea() {
+        return area;
+    } 
 }
