@@ -17,7 +17,7 @@ public class CurrencySet {
     public Currency get(int index) {
         return list.get(index);
     }
-
+    
     public Currency[] toArray() {
         return list.toArray(new Currency[list.size()]);
     }
