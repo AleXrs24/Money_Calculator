@@ -11,7 +11,6 @@ import mock.CurrencySetLoader;
 import mock.ExchangeRateLoader;
 
 public class Application {
-
     public static void main(String[] args) {
         CurrencySet currencySet = new CurrencySetLoader().load();
         final ApplicationFrame frame = new ApplicationFrame(currencySet.toArray());
@@ -19,12 +18,11 @@ public class Application {
            
             @Override
             public void actionPerformed(ActionEvent e) {
-                Currency in = frame.getExchangeDialog().getExchange().getMoney().getCurrency();
-                Currency out = frame.getExchangeDialog().getExchange().getCurrency();
-                ExchangeOperation operation = new ExchangeOperation(frame.getExchangeDialog(), new MoneyDisplay(frame), new ExchangeRateLoader().load(in, out));
+                Currency from = frame.getExchangeDialog().getExchange().getMoney().getCurrency();
+                Currency to = frame.getExchangeDialog().getExchange().getCurrency();
+                ExchangeOperation operation = new ExchangeOperation(frame.getExchangeDialog(), new MoneyDisplay(frame), new ExchangeRateLoader().load(from, to));
                 operation.execute();
             }
         });
-   
     }
 }
