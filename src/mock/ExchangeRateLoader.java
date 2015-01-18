@@ -12,11 +12,11 @@ public class ExchangeRateLoader implements persistence.ExchangeRateLoader{
     private FileReader reader;
     private String line = "";
     private String[] aux = new String[2];
-    private double inRate;
-    private double outRate;
+    private double inValue;
+    private double outValue;
     
     @Override
-    public ExchangeRate load(Currency in, Currency out) {
+    public ExchangeRate load(Currency from, Currency to) {
         try {
             reader = new FileReader("C:\\Users\\aaleXrs24\\Desktop\\list.csv");
             BufferedReader br = new BufferedReader(reader);
@@ -24,11 +24,11 @@ public class ExchangeRateLoader implements persistence.ExchangeRateLoader{
             while(line != null){
                 aux = line.split(";");
                 
-                if(aux[0].equals(in.getName())){
-                    inRate = Double.parseDouble(aux[1]);
+                if(aux[0].equals(from.getName())){
+                    inValue = Double.parseDouble(aux[1]);
                 }
-                if(aux[0].equals(out.getName())){
-                    outRate = Double.parseDouble(aux[1]);
+                if(aux[0].equals(to.getName())){
+                    outValue = Double.parseDouble(aux[1]);
                 }
                 line = br.readLine();
             }
@@ -36,6 +36,6 @@ public class ExchangeRateLoader implements persistence.ExchangeRateLoader{
         } catch (IOException ex) {
             Logger.getLogger(ExchangeRateLoader.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return new ExchangeRate(in, out, inRate/outRate);
+        return new ExchangeRate(from, to, inValue/outValue);
     }   
 }
