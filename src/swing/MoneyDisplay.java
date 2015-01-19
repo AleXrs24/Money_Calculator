@@ -14,6 +14,6 @@ public class MoneyDisplay implements ui.MoneyDisplay{
     
     @Override
     public void display(Money money) {
-        frame.getTextArea().getArea().setText("El cambio es:" + df.format(money.getAmount()) + " " + money.getCurrency() + "\n");
+        frame.getTextArea().getArea().setText(df.format(money.getAmount()) + " " + money.getCurrency() + "\n");
     }
 }
