@@ -36,6 +36,6 @@ public class ExchangeRateLoader implements persistence.ExchangeRateLoader{
         } catch (IOException ex) {
             Logger.getLogger(ExchangeRateLoader.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return new ExchangeRate(from, to, outValue/inValue);
+        return new ExchangeRate(from, to, inValue/outValue);
     }   
 }
